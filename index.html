@@ -1,288 +1,417 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pastelería Dulce Encanto</title>
-  <style>
-    /* Reset y tipografía */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; background-color: #fff5f0; color: #333; overflow-x: hidden; }
 
-    /* Confeti */
-    .confetti {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background-color: #ff8c94;
-      top: -10px;
-      animation: fall linear infinite;
-      opacity: 0.8;
-      border-radius: 50%;
-      z-index: 9999;
-    }
-    @keyframes fall {
-      0% { transform: translateY(-10px) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(360deg); }
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* Header con fondo */
-    header {
-      background: url('https://images.unsplash.com/photo-1604908177540-1c4b7e09a7b4?auto=format&fit=crop&w=1950&q=80') no-repeat center/cover;
-      color: #fff;
-      padding: 80px 20px 40px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    header::after {
-      content: '';
-      position: absolute;
-      top:0; left:0; width:100%; height:100%;
-      background-color: rgba(255,140,148,0.6);
-    }
-    header h1 {
-      position: relative;
-      font-size: 3rem;
-      margin-bottom: 15px;
-    }
-    nav {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-    nav a { color: #fff; text-decoration: none; font-weight: 600; transition: color 0.3s; }
-    nav a:hover { color: #ffe3e0; }
+<title>La Dulce Chispa De María</title>
 
-    section { padding: 50px 20px; max-width: 1200px; margin: auto; }
-    h2 { text-align: center; color: #ff5e57; font-size: 2.2rem; margin-bottom: 35px; }
+<meta name="description" content="Pastelería artesanal en Puebla. Pasteles personalizados, repostería casera y postres para eventos.">
+<meta name="keywords" content="pastelería en Puebla, pasteles personalizados Puebla, pasteles de cumpleaños Puebla">
+<meta name="robots" content="index, follow">
 
-    /* Slider de productos */
-    .slider-container { position: relative; }
-    .slider { display: flex; overflow: hidden; border-radius: 15px; }
-    .slider-track { display: flex; transition: transform 0.5s ease; }
-    .producto {
-      min-width: 300px;
-      margin: 10px;
-      background-color: #fff0f0;
-      border-radius: 15px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .producto:hover { transform: translateY(-5px); }
-    .producto img { width: 100%; border-top-left-radius: 15px; border-top-right-radius: 15px; }
-    .producto h3 { margin: 15px 0 10px; color: #ff5e57; }
-    .producto p { padding: 0 15px 15px; }
+<style>
 
-    /* Botones slider */
-    .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(255,140,148,0.8);
-      border: none;
-      color: #fff;
-      font-size: 2rem;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 50%;
-      transition: background 0.3s;
-      z-index: 2;
-    }
-    .slider-btn:hover { background-color: #ff5e57; }
-    .prev { left: 10px; }
-    .next { right: 10px; }
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#fff8f2;
+}
 
-    /* Comentarios */
-    .comentarios { margin-top: 20px; }
-    .comentario {
-      background-color: #fff0f0;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      transition: background 0.3s;
-    }
-    .comentario:hover { background-color: #ffe3e0; }
+/* MENU */
 
-    form { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin: auto; }
-    input, textarea, button {
-      padding: 12px; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem;
-    }
-    button {
-      background-color: #ff8c94; color: #fff; border: none; cursor: pointer; font-weight: 600;
-      transition: background-color 0.3s;
-    }
-    button:hover { background-color: #ff5e57; }
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#ff6b6b;
+padding:15px;
+text-align:center;
+z-index:1000;
+}
 
-    /* Tarjetas contacto, storytelling, horario */
-    .card {
-      background-color: #fff0f0;
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
-    }
-    .card:hover { transform: translateY(-5px); }
-    .card p { margin-bottom: 12px; font-size: 1.1rem; }
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      background-color: #ff8c94;
-      color: #fff;
-      margin-top: 30px;
-    }
+/* HEADER */
 
-    @media (max-width: 768px) { .producto { min-width: 250px; } }
-    @media (max-width: 500px) { nav { flex-direction: column; gap: 15px; } header h1 { font-size: 2.2rem; } }
-  </style>
+header{
+background:url("img/1.jpg") center/cover;
+color:white;
+padding:160px 20px 120px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:50px;
+background:rgba(0,0,0,0.5);
+display:inline-block;
+padding:15px;
+border-radius:10px;
+}
+
+/* BOTONES */
+
+.btn{
+display:inline-block;
+padding:12px 20px;
+background:#ff6b6b;
+color:white;
+text-decoration:none;
+border:none;
+border-radius:6px;
+margin-top:10px;
+cursor:pointer;
+}
+
+/* SECCIONES */
+
+section{
+padding:60px 20px;
+text-align:center;
+}
+
+/* PRODUCTOS */
+
+.productos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.card{
+background:white;
+width:220px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+padding:10px;
+transition:transform .3s;
+}
+
+.card:hover{
+transform:scale(1.07);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+/* GALERIA */
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+}
+
+.galeria img{
+width:100%;
+border-radius:10px;
+transition:transform .3s;
+}
+
+.galeria img:hover{
+transform:scale(1.1);
+}
+
+/* HISTORIA */
+
+.historia{
+max-width:700px;
+margin:auto;
+line-height:1.7;
+}
+
+/* FORMULARIO */
+
+form{
+max-width:400px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+input, textarea{
+padding:10px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+/* MAPA */
+
+iframe{
+width:90%;
+height:300px;
+border:none;
+border-radius:10px;
+}
+
+/* FOOTER */
+
+footer{
+background:#333;
+color:white;
+padding:30px;
+text-align:center;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+}
+
+/* CARRITO */
+
+#carrito{
+background:white;
+max-width:400px;
+margin:auto;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <header>
-    <h1>Pastelería Dulce Encanto</h1>
-    <nav>
-      <a href="#productos">Productos</a>
-      <a href="#comentarios">Comentarios</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#storytelling">Nuestra Historia</a>
-      <a href="#horario">Horario</a>
-    </nav>
-  </header>
+<nav>
 
-  <!-- Slider de productos -->
-  <section id="productos">
-    <h2>Productos</h2>
-    <div class="slider-container">
-      <button class="slider-btn prev">&#10094;</button>
-      <div class="slider">
-        <div class="slider-track" id="sliderTrack">
-          <div class="producto"><img src="https://via.placeholder.com/300x180.png?text=Pastel+Chocolate" alt="Pastel Chocolate"><h3>Pastel de Chocolate</h3><p>Delicioso pastel con cobertura de chocolate y relleno de crema.</p></div>
-          <div class="producto"><img src="https://via.placeholder.com/300x180.png?text=Cupcakes" alt="Cupcakes"><h3>Cupcakes</h3><p>Variedad de sabores: vainilla, fresa, red velvet y chocolate.</p></div>
-          <div class="producto"><img src="https://via.placeholder.com/300x180.png?text=Galletas" alt="Galletas"><h3>Galletas</h3><p>Hechas a mano, crujientes y con ingredientes naturales.</p></div>
-          <div class="producto"><img src="https://via.placeholder.com/300x180.png?text=Pastel+Frutas" alt="Pastel de Frutas"><h3>Pastel de Frutas</h3><p>Fresco y ligero, con frutas de temporada y crema suave.</p></div>
-        </div>
-      </div>
-      <button class="slider-btn next">&#10095;</button>
-    </div>
-  </section>
+<a href="#inicio">Inicio</a>
+<a href="#productos">Productos</a>
+<a href="#galeria">Galería</a>
+<a href="#historia">Historia</a>
+<a href="#contacto">Contacto</a>
 
-  <!-- Comentarios -->
-  <section id="comentarios">
-    <h2>Comentarios de nuestros clientes</h2>
-    <div class="comentarios" id="listaComentarios"></div>
-    <form id="formComentario">
-      <input type="text" id="nombre" placeholder="Tu nombre" required>
-      <textarea id="mensaje" placeholder="Tu comentario" rows="3" required></textarea>
-      <button type="submit">Enviar Comentario</button>
-    </form>
-  </section>
+</nav>
 
-  <!-- Contacto -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <div class="card">
-      <p>📞 Teléfono: +52 123 456 7890</p>
-      <p>📧 Email: contacto@dulceencanto.com</p>
-      <p>🏠 Dirección: Calle Falsa 123, Colonia Centro, Puebla, México</p>
-    </div>
-  </section>
+<header id="inicio">
 
-  <!-- Storytelling -->
-  <section id="storytelling">
-    <h2>Nuestra Historia</h2>
-    <div class="card">
-      <p>Desde 2010, en Dulce Encanto nos dedicamos a crear momentos felices a través de la repostería. Cada pastel, galleta o cupcake es preparado con ingredientes de la mejor calidad y mucho cariño. Nuestra misión es endulzar tu día y acompañarte en tus celebraciones más especiales.</p>
-    </div>
-  </section>
+<h1>La Dulce Chispa De María</h1>
 
-  <!-- Horario -->
-  <section id="horario">
-    <h2>Horario de Atención</h2>
-    <div class="card">
-      <p>Lunes a Viernes: 9:00 AM - 7:00 PM</p>
-      <p>Sábados: 10:00 AM - 6:00 PM</p>
-      <p>Domingos: Cerrado</p>
-    </div>
-  </section>
+<p>Un pedacito de hogar en cada bocado</p>
 
-  <footer>
-    &copy; 2026 Pastelería Dulce Encanto. Todos los derechos reservados.
-  </footer>
+<a class="btn"
+href="https://wa.me/522226943133?text=Hola quiero información sobre sus pasteles">
+Pedir por WhatsApp
+</a>
 
-  <script>
-    // Comentarios dinámicos
-    const form = document.getElementById('formComentario');
-    const listaComentarios = document.getElementById('listaComentarios');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nombre = document.getElementById('nombre').value;
-      const mensaje = document.getElementById('mensaje').value;
-      const div = document.createElement('div');
-      div.classList.add('comentario');
-      div.innerHTML = `<strong>${nombre}:</strong> <p>${mensaje}</p>`;
-      listaComentarios.appendChild(div);
-      form.reset();
-    });
+</header>
 
-    // Slider automático
-    const track = document.getElementById('sliderTrack');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    const productos = document.querySelectorAll('.producto');
-    let index = 0;
+<section id="productos">
 
-    function showSlide(i) {
-      if(i < 0) index = productos.length - 1;
-      else if(i >= productos.length) index = 0;
-      else index = i;
-      track.style.transform = `translateX(${-index * (productos[0].offsetWidth + 20)}px)`;
-    }
-    prevBtn.addEventListener('click', () => showSlide(index - 1));
-    nextBtn.addEventListener('click', () => showSlide(index + 1));
-    setInterval(() => showSlide(index + 1), 4000);
+<h2>Nuestros Pasteles</h2>
 
-    // Crear confeti dinámico
-    function createConfetti() {
-      for(let i=0;i<50;i++){
-        const conf = document.createElement('div');
-        conf.classList.add('confetti');
-        conf.style.left = Math.random() * window.innerWidth + 'px';
-        conf.style.backgroundColor = `hsl(${Math.random()*360}, 70%, 70%)`;
-        conf.style.animationDuration = 3 + Math.random()*3 + 's';
-        conf.style.width = conf.style.height = 5 + Math.random()*10 + 'px';
-        document.body.appendChild(conf);
-      }
-    }
-    window.onload = createConfetti;
-  </script>
+<div class="productos">
+
+<div class="card">
+<img src="img/1.jpg">
+<h3>Pastel Chocolate</h3>
+<button class="btn" onclick="agregarCarrito('Pastel Chocolate')">Agregar</button>
+</div>
+
+<div class="card">
+<img src="img/2.png">
+<h3>Pastel Fresa</h3>
+<button class="btn" onclick="agregarCarrito('Pastel Fresa')">Agregar</button>
+</div>
+
+<div class="card">
+<img src="img/3.jpg">
+<h3>Cheesecake</h3>
+<button class="btn" onclick="agregarCarrito('Cheesecake')">Agregar</button>
+</div>
+
+<div class="card">
+<img src="img/4.png">
+<h3>Tres Leches</h3>
+<button class="btn" onclick="agregarCarrito('Tres Leches')">Agregar</button>
+</div>
+
+<div class="card">
+<img src="img/5.jpg">
+<h3>Pastel Personalizado</h3>
+<button class="btn" onclick="agregarCarrito('Pastel Personalizado')">Agregar</button>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Tu Pedido</h2>
+
+<div id="carrito">
+
+<ul id="listaCarrito"></ul>
+
+<button class="btn" onclick="enviarPedido()">
+Enviar pedido por WhatsApp
+</button>
+
+</div>
+
+</section>
+
+<section id="galeria">
+
+<h2>Galería</h2>
+
+<div class="galeria">
+
+<img src="img/1.jpeg">
+<img src="img/2.jpeg">
+<img src="img/3.jpeg">
+<img src="img/4.jpeg">
+<img src="img/5.jpeg">
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Opiniones de Clientes</h2>
+
+<div class="card">
+⭐ ⭐ ⭐ ⭐ ⭐
+<p>Los pasteles están increíbles.</p>
+<b>— Ana</b>
+</div>
+
+<div class="card">
+⭐ ⭐ ⭐ ⭐ ⭐
+<p>Pedí uno personalizado y quedó perfecto.</p>
+<b>— Carlos</b>
+</div>
+
+</section>
+
+<section id="historia">
+
+<h2>Nuestra Historia</h2>
+
+<div class="historia">
+
+<p>Todo comenzó en una cocina sencilla con un horno encendido y una idea clara: hacer postres capaces de alegrar el día de alguien.</p>
+
+<p>María siempre creyó que la repostería era más que mezclar ingredientes.</p>
+
+<p>Así nació <b>La Dulce Chispa De María</b>.</p>
+
+<p>Donde cada bocado tiene una historia.</p>
+
+</div>
+
+</section>
+
+<section id="contacto">
+
+<h2>Pasteles Personalizados</h2>
+
+<form>
+
+<input placeholder="Tu nombre">
+<input placeholder="Tu teléfono">
+<textarea placeholder="Describe tu pastel"></textarea>
+
+<button class="btn">Enviar</button>
+
+</form>
+
+</section>
+
+<section>
+
+<h2>Ubicación</h2>
+
+<iframe src="https://maps.google.com/maps?q=galaxia%20bosques%20de%20manzanilla%20puebla&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+</section>
+
+<footer>
+
+<p>Horario: 10:00 AM – 9:00 PM</p>
+
+<p>WhatsApp: 222 694 3133</p>
+
+<p>
+Instagram
+<a style="color:white"
+href="https://www.instagram.com/la_dulce_chispa_de_maria">
+@la_dulce_chispa_de_maria
+</a>
+</p>
+
+</footer>
+
+<a class="whatsapp"
+href="https://wa.me/522226943133?text=Hola quiero información">
+💬
+</a>
+
+<script>
+
+let carrito=[];
+
+function agregarCarrito(producto){
+
+carrito.push(producto);
+
+actualizarCarrito();
+
+alert(producto + " agregado");
+
+}
+
+function actualizarCarrito(){
+
+let lista=document.getElementById("listaCarrito");
+
+lista.innerHTML="";
+
+carrito.forEach(p=>{
+
+let li=document.createElement("li");
+
+li.textContent=p;
+
+lista.appendChild(li);
+
+});
+
+}
+
+function enviarPedido(){
+
+let mensaje="Hola quiero pedir: "+carrito.join(", ");
+
+window.open("https://wa.me/522226943133?text="+encodeURIComponent(mensaje));
+
+}
+
+</script>
 
 </body>
 </html>
-<!-- Imagen de un pastel -->
-<img src="img/1.jpg" alt="Pastel de chocolate" width="300"> 
-
-<!-- Imagen del logo -->
-<img src="img/2.png" alt="Logo de la pastelería" width="150">
-
-<!-- Imagen de un pastel -->
-<img src="img/3.jpg" alt="Pastel de chocolate" width="300"> 
-
-<!-- Imagen del logo -->
-<img src="img/4.png" alt="Logo de la pastelería" width="150">
-
-<!-- Imagen de un pastel -->
-<img src="img/5.jpg" alt="Pastel de chocolate" width="300"> 
-
-<!-- Imagen del logo -->
-<img src="img/6.png" alt="Logo de la pastelería" width="150">
-
-<!-- Imagen de un pastel -->
-<img src="img/7.jpg" alt="Pastel de chocolate" width="300"> 
-
