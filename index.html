@@ -8,32 +8,25 @@
 
 <title>La Dulce Chispa De María</title>
 
-<meta name="description" content="Pastelería artesanal en Puebla. Pasteles personalizados, repostería casera y postres para eventos.">
-<meta name="keywords" content="pastelería en Puebla, pasteles personalizados Puebla, pasteles de cumpleaños Puebla">
-<meta name="robots" content="index, follow">
-
 <style>
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
-background:#fff8f2;
+font-family:Arial;
+background:#f5f1ea;
+color:#3b2c28;
 }
 
-/* MENU */
+/* NAV */
 
 nav{
-position:fixed;
-top:0;
-width:100%;
-background:#ff6b6b;
+background:#3b2c28;
 padding:15px;
 text-align:center;
-z-index:1000;
 }
 
 nav a{
-color:white;
+color:#e3f2fd;
 margin:0 15px;
 text-decoration:none;
 font-weight:bold;
@@ -42,32 +35,22 @@ font-weight:bold;
 /* HEADER */
 
 header{
+
 background:url("img/1.jpg") center/cover;
-color:white;
-padding:160px 20px 120px 20px;
+padding:150px 20px;
 text-align:center;
+color:white;
+
 }
 
 header h1{
-font-size:50px;
-background:rgba(0,0,0,0.5);
+
+background:rgba(59,44,40,0.7);
 display:inline-block;
-padding:15px;
+padding:15px 25px;
 border-radius:10px;
-}
+font-size:45px;
 
-/* BOTONES */
-
-.btn{
-display:inline-block;
-padding:12px 20px;
-background:#ff6b6b;
-color:white;
-text-decoration:none;
-border:none;
-border-radius:6px;
-margin-top:10px;
-cursor:pointer;
 }
 
 /* SECCIONES */
@@ -79,24 +62,28 @@ text-align:center;
 
 /* PRODUCTOS */
 
-.productos{
+.carousel{
+
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
+overflow-x:auto;
 gap:20px;
+padding:20px;
+
 }
 
 .card{
+
+min-width:250px;
 background:white;
-width:220px;
 border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 padding:10px;
-transition:transform .3s;
+transition:0.3s;
+
 }
 
 .card:hover{
-transform:scale(1.07);
+transform:scale(1.05);
 }
 
 .card img{
@@ -104,22 +91,35 @@ width:100%;
 border-radius:10px;
 }
 
-/* GALERIA */
+/* BOTONES */
 
-.galeria{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
+.btn{
+
+background:#6baed6;
+border:none;
+padding:10px 15px;
+border-radius:6px;
+color:white;
+cursor:pointer;
+margin-top:10px;
+
 }
 
-.galeria img{
-width:100%;
+.btn:hover{
+background:#4f8bb3;
+}
+
+/* CARRITO */
+
+#carrito{
+
+background:white;
+max-width:400px;
+margin:auto;
+padding:20px;
 border-radius:10px;
-transition:transform .3s;
-}
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 
-.galeria img:hover{
-transform:scale(1.1);
 }
 
 /* HISTORIA */
@@ -130,43 +130,21 @@ margin:auto;
 line-height:1.7;
 }
 
-/* FORMULARIO */
-
-form{
-max-width:400px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-input, textarea{
-padding:10px;
-border-radius:5px;
-border:1px solid #ccc;
-}
-
-/* MAPA */
-
-iframe{
-width:90%;
-height:300px;
-border:none;
-border-radius:10px;
-}
-
 /* FOOTER */
 
 footer{
-background:#333;
+
+background:#3b2c28;
 color:white;
 padding:30px;
 text-align:center;
+
 }
 
 /* WHATSAPP */
 
 .whatsapp{
+
 position:fixed;
 bottom:20px;
 right:20px;
@@ -176,17 +154,7 @@ padding:15px;
 border-radius:50%;
 font-size:22px;
 text-decoration:none;
-}
 
-/* CARRITO */
-
-#carrito{
-background:white;
-max-width:400px;
-margin:auto;
-padding:20px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 </style>
@@ -199,7 +167,7 @@ box-shadow:0 4px 10px rgba(0,0,0,0.2);
 
 <a href="#inicio">Inicio</a>
 <a href="#productos">Productos</a>
-<a href="#galeria">Galería</a>
+<a href="#pedido">Tu pedido</a>
 <a href="#historia">Historia</a>
 <a href="#contacto">Contacto</a>
 
@@ -211,116 +179,147 @@ box-shadow:0 4px 10px rgba(0,0,0,0.2);
 
 <p>Un pedacito de hogar en cada bocado</p>
 
-<a class="btn"
-href="https://wa.me/522226943133?text=Hola quiero información sobre sus pasteles">
-Pedir por WhatsApp
-</a>
-
 </header>
 
 <section id="productos">
 
-<h2>Nuestros Pasteles</h2>
+<h2>Nuestros productos</h2>
 
-<div class="productos">
+<div class="carousel">
 
 <div class="card">
+
 <img src="img/1.jpg">
-<h3>Pastel Chocolate</h3>
-<button class="btn" onclick="agregarCarrito('Pastel Chocolate')">Agregar</button>
+
+<h3>Pastel de Chocolate</h3>
+
+<p>
+Suave pastel de chocolate con relleno cremoso.
+</p>
+
+<button class="btn"
+onclick="agregarCarrito('Pastel de Chocolate')">
+Agregar
+</button>
+
 </div>
 
 <div class="card">
+
 <img src="img/2.png">
-<h3>Pastel Fresa</h3>
-<button class="btn" onclick="agregarCarrito('Pastel Fresa')">Agregar</button>
+
+<h3>Pastel de Fresa</h3>
+
+<p>
+Pastel esponjoso con fresas naturales.
+</p>
+
+<button class="btn"
+onclick="agregarCarrito('Pastel de Fresa')">
+Agregar
+</button>
+
 </div>
 
 <div class="card">
+
 <img src="img/3.jpg">
+
 <h3>Cheesecake</h3>
-<button class="btn" onclick="agregarCarrito('Cheesecake')">Agregar</button>
+
+<p>
+Cheesecake cremoso con base de galleta.
+</p>
+
+<button class="btn"
+onclick="agregarCarrito('Cheesecake')">
+Agregar
+</button>
+
 </div>
 
 <div class="card">
+
 <img src="img/4.png">
+
 <h3>Tres Leches</h3>
-<button class="btn" onclick="agregarCarrito('Tres Leches')">Agregar</button>
+
+<p>
+Pastel húmedo con nuestra receta especial.
+</p>
+
+<button class="btn"
+onclick="agregarCarrito('Tres Leches')">
+Agregar
+</button>
+
 </div>
 
 <div class="card">
+
 <img src="img/5.jpg">
+
 <h3>Pastel Personalizado</h3>
-<button class="btn" onclick="agregarCarrito('Pastel Personalizado')">Agregar</button>
+
+<p>
+Diseñamos pasteles únicos para tu evento.
+</p>
+
+<button class="btn"
+onclick="agregarCarrito('Pastel Personalizado')">
+Agregar
+</button>
+
 </div>
 
 </div>
 
 </section>
 
-<section>
+<section id="pedido">
 
-<h2>Tu Pedido</h2>
+<h2>Tu carrito</h2>
 
 <div id="carrito">
 
 <ul id="listaCarrito"></ul>
 
 <button class="btn" onclick="enviarPedido()">
+
 Enviar pedido por WhatsApp
+
 </button>
 
 </div>
 
 </section>
 
-<section id="galeria">
-
-<h2>Galería</h2>
-
-<div class="galeria">
-
-<img src="img/1.jpeg">
-<img src="img/2.jpeg">
-<img src="img/3.jpeg">
-<img src="img/4.jpeg">
-<img src="img/5.jpeg">
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Opiniones de Clientes</h2>
-
-<div class="card">
-⭐ ⭐ ⭐ ⭐ ⭐
-<p>Los pasteles están increíbles.</p>
-<b>— Ana</b>
-</div>
-
-<div class="card">
-⭐ ⭐ ⭐ ⭐ ⭐
-<p>Pedí uno personalizado y quedó perfecto.</p>
-<b>— Carlos</b>
-</div>
-
-</section>
-
 <section id="historia">
 
-<h2>Nuestra Historia</h2>
+<h2>Nuestra historia</h2>
 
 <div class="historia">
 
-<p>Todo comenzó en una cocina sencilla con un horno encendido y una idea clara: hacer postres capaces de alegrar el día de alguien.</p>
+<p>
+Un pedacito de hogar en cada bocado.
+</p>
 
-<p>María siempre creyó que la repostería era más que mezclar ingredientes.</p>
+<p>
+Todo comenzó en una cocina sencilla, con un horno encendido y una idea clara:
+hacer postres capaces de alegrar el día de alguien.
+</p>
 
-<p>Así nació <b>La Dulce Chispa De María</b>.</p>
+<p>
+María siempre creyó que la repostería era más que mezclar ingredientes.
+</p>
 
-<p>Donde cada bocado tiene una historia.</p>
+<p>
+Así nació <b>La Dulce Chispa De María</b>.
+</p>
+
+<p>
+Donde cada bocado tiene una historia.
+</p>
 
 </div>
 
@@ -328,86 +327,85 @@ Enviar pedido por WhatsApp
 
 <section id="contacto">
 
-<h2>Pasteles Personalizados</h2>
+<h2>Contacto</h2>
 
-<form>
+<p>Horario: 10:00 AM – 9:00 PM</p>
 
-<input placeholder="Tu nombre">
-<input placeholder="Tu teléfono">
-<textarea placeholder="Describe tu pastel"></textarea>
+<p>WhatsApp: 2226943133</p>
 
-<button class="btn">Enviar</button>
+<p>
 
-</form>
+Instagram
 
-</section>
+<a href="https://www.instagram.com/la_dulce_chispa_de_maria">
 
-<section>
+@la_dulce_chispa_de_maria
 
-<h2>Ubicación</h2>
+</a>
 
-<iframe src="https://maps.google.com/maps?q=galaxia%20bosques%20de%20manzanilla%20puebla&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</p>
+
+<p>
+
+Ubicación  
+Calle Canal del Carmen 9-4  
+Col. Galaxia Bosques de Manzanilla
+
+</p>
 
 </section>
 
 <footer>
 
-<p>Horario: 10:00 AM – 9:00 PM</p>
-
-<p>WhatsApp: 222 694 3133</p>
-
-<p>
-Instagram
-<a style="color:white"
-href="https://www.instagram.com/la_dulce_chispa_de_maria">
-@la_dulce_chispa_de_maria
-</a>
-</p>
+<p>La Dulce Chispa De María</p>
 
 </footer>
 
 <a class="whatsapp"
-href="https://wa.me/522226943133?text=Hola quiero información">
+
+href="https://wa.me/522226943133?text=Hola%20quiero%20informacion">
+
 💬
+
 </a>
 
 <script>
 
-let carrito=[];
+let carrito=[]
 
 function agregarCarrito(producto){
 
-carrito.push(producto);
+carrito.push(producto)
 
-actualizarCarrito();
-
-alert(producto + " agregado");
+actualizarCarrito()
 
 }
 
 function actualizarCarrito(){
 
-let lista=document.getElementById("listaCarrito");
+let lista=document.getElementById("listaCarrito")
 
-lista.innerHTML="";
+lista.innerHTML=""
 
 carrito.forEach(p=>{
 
-let li=document.createElement("li");
+let li=document.createElement("li")
 
-li.textContent=p;
+li.textContent=p
 
-lista.appendChild(li);
+lista.appendChild(li)
 
-});
+})
 
 }
 
 function enviarPedido(){
 
-let mensaje="Hola quiero pedir: "+carrito.join(", ");
+let mensaje="Hola quiero pedir: "+carrito.join(", ")
 
-window.open("https://wa.me/522226943133?text="+encodeURIComponent(mensaje));
+window.open(
+"https://wa.me/522226943133?text="+encodeURIComponent(mensaje)
+)
 
 }
 
