@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,280 +10,223 @@
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
-background:#f5f1ea;
-color:#3b2c28;
+font-family:Arial;
+background:#f5f3ef;
 }
 
-/* NAV */
+/* encabezado */
+
+header{
+background:#3b4c63;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+header h1{
+margin:0;
+font-size:40px;
+}
+
+/* menu */
 
 nav{
-background:#3b2c28;
-padding:15px;
+background:#6b4f3b;
+padding:10px;
 text-align:center;
-position:sticky;
-top:0;
 }
 
 nav a{
-color:#d6e6f2;
-margin:0 15px;
+color:white;
+margin:10px;
 text-decoration:none;
 font-weight:bold;
 }
 
-/* HEADER */
-
-header{
-background:url("img/1.jpg") center/cover;
-padding:150px 20px;
-text-align:center;
-color:white;
-}
-
-header h1{
-background:rgba(59,44,40,0.7);
-display:inline-block;
-padding:15px 25px;
-border-radius:10px;
-font-size:45px;
-}
-
-/* SECCIONES */
+/* secciones */
 
 section{
-padding:60px 20px;
+padding:40px;
 text-align:center;
 }
 
-/* PRODUCTOS */
+/* productos */
 
 .productos{
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
+overflow-x:auto;
 gap:20px;
+padding:20px;
 }
 
-.card{
-width:250px;
+.producto{
+min-width:250px;
 background:white;
 border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-padding:10px;
+padding:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 transition:0.3s;
 }
 
-.card:hover{
+.producto:hover{
 transform:scale(1.05);
 }
 
-.card img{
+.producto img{
 width:100%;
 border-radius:10px;
 }
 
-.card p{
-font-size:14px;
+.precio{
+font-weight:bold;
+color:#3b4c63;
 }
 
-/* BOTONES */
+/* carrito */
+
+.carrito{
+position:fixed;
+top:20px;
+right:20px;
+background:#6b4f3b;
+color:white;
+padding:10px 15px;
+border-radius:20px;
+font-weight:bold;
+}
+
+/* botones */
 
 .btn{
-background:#6baed6;
-border:none;
-padding:10px 15px;
-border-radius:6px;
+background:#3b4c63;
 color:white;
+padding:10px 15px;
+border:none;
+border-radius:6px;
 cursor:pointer;
 margin-top:10px;
 }
 
 .btn:hover{
-background:#4f8bb3;
+background:#2a3748;
 }
 
-/* CARRITO */
+/* historia */
 
-#carrito{
-background:white;
-max-width:400px;
+.historia{
+max-width:800px;
 margin:auto;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+line-height:1.6;
+font-size:18px;
 }
 
-/* GALERIA */
-
-.galeria{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-padding:20px;
-}
-
-.galeria img{
-width:100%;
-border-radius:10px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.galeria img:hover{
-transform:scale(1.05);
-}
-
-/* LIGHTBOX */
-
-#lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-display:none;
-align-items:center;
-justify-content:center;
-}
-
-#lightbox img{
-max-width:80%;
-max-height:80%;
-border-radius:10px;
-}
-
-/* MAPA */
-
-iframe{
-width:90%;
-height:350px;
-border:none;
-border-radius:10px;
-margin-top:20px;
-}
-
-/* FOOTER */
+/* footer */
 
 footer{
-background:#3b2c28;
+background:#3b4c63;
 color:white;
-padding:30px;
 text-align:center;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
+padding:30px;
+margin-top:40px;
 }
 
 </style>
-
 </head>
 
 <body>
 
+<div class="carrito">
+🛒 Carrito (0)
+</div>
+
+<header>
+<h1>La Dulce Chispa De María</h1>
+<p>Un pedacito de hogar en cada bocado</p>
+</header>
+
 <nav>
 
 <a href="#inicio">Inicio</a>
+
 <a href="#productos">Productos</a>
-<a href="#pedido">Tu pedido</a>
-<a href="#galeria">Galería</a>
-<a href="#historia">Historia</a>
+
+<a href="#historia">Nuestra Historia</a>
+
 <a href="#contacto">Contacto</a>
 
 </nav>
 
-<header id="inicio">
+<section id="inicio">
 
-<h1>La Dulce Chispa De María</h1>
+<h2>Bienvenido</h2>
 
-<p>Un pedacito de hogar en cada bocado</p>
+<p>Postres artesanales hechos con amor.</p>
 
-</header>
+<p>También hacemos <b>pasteles personalizados</b> para cualquier ocasión.</p>
+
+</section>
 
 <section id="productos">
 
-<h2>Nuestros productos</h2>
+<h2>Nuestros Productos</h2>
 
 <div class="productos">
 
-<div class="card">
+<div class="producto">
 <img src="img/1.jpeg">
 <h3>Pastel de Chocolate</h3>
-<p>Suave pastel de chocolate con relleno cremoso.</p>
-<button class="btn" onclick="agregarCarrito('Pastel de Chocolate')">Agregar</button>
+<p>Suave pastel con cobertura cremosa de chocolate.</p>
+<p class="precio">$250</p>
+<button class="btn">Agregar al carrito</button>
 </div>
 
-<div class="card">
+<div class="producto">
 <img src="img/2.jpeg">
-<h3>Pastel de Fresa</h3>
-<p>Pastel esponjoso con fresas naturales.</p>
-<button class="btn" onclick="agregarCarrito('Pastel de Fresa')">Agregar</button>
+<h3>Pastel Tres Leches</h3>
+<p>Clásico pastel esponjoso bañado en tres leches.</p>
+<p class="precio">$280</p>
+<button class="btn">Agregar al carrito</button>
 </div>
 
-<div class="card">
+<div class="producto">
 <img src="img/3.jpeg">
 <h3>Cheesecake</h3>
-<p>Cheesecake cremoso con base de galleta.</p>
-<button class="btn" onclick="agregarCarrito('Cheesecake')">Agregar</button>
+<p>Suave cheesecake con base crujiente.</p>
+<p class="precio">$300</p>
+<button class="btn">Agregar al carrito</button>
 </div>
 
-<div class="card">
+<div class="producto">
 <img src="img/4.jpeg">
-<h3>Pastel Tres Leches</h3>
-<p>Pastel húmedo con nuestra receta especial.</p>
-<button class="btn" onclick="agregarCarrito('Tres Leches')">Agregar</button>
+<h3>Pastel de Fresa</h3>
+<p>Pastel con crema y fresas naturales.</p>
+<p class="precio">$270</p>
+<button class="btn">Agregar al carrito</button>
 </div>
 
-<div class="card">
+<div class="producto">
 <img src="img/5.jpeg">
+<h3>Pan Dulce</h3>
+<p>Pan artesanal recién horneado.</p>
+<p class="precio">$25</p>
+<button class="btn">Agregar al carrito</button>
+</div>
+
+<div class="producto">
+<img src="img/6.jpeg">
+<h3>Galletas Caseras</h3>
+<p>Galletas suaves con chispas de chocolate.</p>
+<p class="precio">$50</p>
+<button class="btn">Agregar al carrito</button>
+</div>
+
+<div class="producto">
+<img src="img/7.jpeg">
 <h3>Pastel Personalizado</h3>
-<p>Diseñamos pasteles únicos para cumpleaños y eventos.</p>
-<button class="btn" onclick="agregarCarrito('Pastel Personalizado')">Agregar</button>
+<p>Diseñamos tu pastel para cualquier evento.</p>
+<p class="precio">Cotización</p>
+<button class="btn">Pedir información</button>
 </div>
-
-</div>
-
-</section>
-
-<section id="pedido">
-
-<h2>Tu carrito</h2>
-
-<div id="carrito">
-
-<ul id="listaCarrito"></ul>
-
-<button class="btn" onclick="enviarPedido()">
-Enviar pedido por WhatsApp
-</button>
-
-</div>
-
-</section>
-
-<section id="galeria">
-
-<h2>Galería de nuestros pasteles</h2>
-
-<div class="galeria">
-
-<img src="img/1.jpeg" onclick="abrirImagen(this)">
-<img src="img/2.jpeg" onclick="abrirImagen(this)">
-<img src="img/3.jpeg" onclick="abrirImagen(this)">
-<img src="img/4.jpeg" onclick="abrirImagen(this)">
-<img src="img/5.jpeg" onclick="abrirImagen(this)">
 
 </div>
 
@@ -292,22 +234,50 @@ Enviar pedido por WhatsApp
 
 <section id="historia">
 
-<h2>Nuestra historia</h2>
+<h2>Nuestra Historia</h2>
 
-<p style="max-width:700px;margin:auto;line-height:1.7">
+<div class="historia">
 
-Un pedacito de hogar en cada bocado.
-
-Todo comenzó en una cocina sencilla con un horno encendido y una idea clara:
+<p>
+Todo comenzó en una cocina sencilla, con un horno encendido y una idea muy clara:
 hacer postres capaces de alegrar el día de alguien.
-
-María siempre creyó que la repostería era más que mezclar ingredientes.
-
-Así nació <b>La Dulce Chispa De María</b>.
-
-Donde cada bocado tiene una historia.
-
 </p>
+
+<p>
+María siempre creyó que la repostería era más que mezclar ingredientes.
+Para ella, cada pastel, cada galleta y cada pan dulce era una forma de compartir cariño.
+</p>
+
+<p>
+Lo que empezó como algo preparado para su familia pronto comenzó a llegar a los vecinos,
+luego a los amigos… y después a muchas más personas que buscaban algo especial:
+un sabor que recordara a hogar.
+</p>
+
+<p>
+Así nació <b>La Dulce Chispa De María</b>.
+</p>
+
+<p>
+Aquí cada receta se prepara con dedicación, con ingredientes de calidad
+y con la misma intención con la que empezó todo:
+crear momentos dulces que se conviertan en recuerdos.
+</p>
+
+<p>
+Porque creemos que un buen postre no solo se disfruta…
+también se comparte, se celebra y se recuerda.
+</p>
+
+<p>
+<b>Bienvenido a La Dulce Chispa De María.</b>
+</p>
+
+<p>
+Donde cada bocado tiene una historia.
+</p>
+
+</div>
 
 </section>
 
@@ -315,22 +285,21 @@ Donde cada bocado tiene una historia.
 
 <h2>Contacto</h2>
 
-<p>Horario: 10:00 AM – 9:00 PM</p>
+<p><b>Horario:</b> 10:00 AM – 9:00 PM</p>
 
-<p>WhatsApp: 2226943133</p>
+<p><b>WhatsApp:</b> 2226943133</p>
 
 <p>
-Instagram
-<a href="https://www.instagram.com/la_dulce_chispa_de_maria">
-@la_dulce_chispa_de_maria
+<b>Instagram:</b>
+<a href="https://www.instagram.com/la_dulce_chispa_de_maria?igsh=c3h2MDNmZHpiZ2Jh">
+Ver perfil
 </a>
 </p>
 
 <p>
-Ubicación  
-Calle Canal del Carmen 9-4  
-Col. Galaxia Bosques de Manzanilla  
-Puebla, México
+<b>Dirección:</b><br>
+Calle Canal del Carmen 9-4<br>
+Col. Galaxia Bosques de Manzanilla
 </p>
 
 <iframe
@@ -338,7 +307,6 @@ src="https://www.google.com/maps?q=Galaxia%20Bosques%20de%20Manzanilla%20Puebla&
 width="100%"
 height="350"
 style="border:0;border-radius:10px;"
-allowfullscreen=""
 loading="lazy">
 </iframe>
 
@@ -346,74 +314,9 @@ loading="lazy">
 
 <footer>
 
-<p>La Dulce Chispa De María</p>
+<p>© 2026 La Dulce Chispa De María</p>
 
 </footer>
-
-<a class="whatsapp"
-href="https://wa.me/522226943133?text=Hola%20quiero%20informacion">
-💬
-</a>
-
-<div id="lightbox" onclick="cerrarImagen()">
-<img id="imagenGrande">
-</div>
-
-<script>
-
-let carrito=[]
-
-function agregarCarrito(producto){
-
-carrito.push(producto)
-actualizarCarrito()
-
-}
-
-function actualizarCarrito(){
-
-let lista=document.getElementById("listaCarrito")
-
-lista.innerHTML=""
-
-carrito.forEach(p=>{
-
-let li=document.createElement("li")
-
-li.textContent=p
-
-lista.appendChild(li)
-
-})
-
-}
-
-function enviarPedido(){
-
-let mensaje="Hola quiero pedir: "+carrito.join(", ")
-
-window.open(
-"https://wa.me/522226943133?text="+encodeURIComponent(mensaje)
-)
-
-}
-
-/* GALERIA */
-
-function abrirImagen(img){
-
-document.getElementById("lightbox").style.display="flex"
-document.getElementById("imagenGrande").src=img.src
-
-}
-
-function cerrarImagen(){
-
-document.getElementById("lightbox").style.display="none"
-
-}
-
-</script>
 
 </body>
 </html>
