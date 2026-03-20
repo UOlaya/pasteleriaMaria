@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,7 +15,7 @@ font-family:Arial;
 background:#f7f4ef;
 }
 
-/* BOTON WHATSAPP ARRIBA */
+/* BOTON WHATSAPP */
 
 .top-whatsapp{
 position:fixed;
@@ -33,47 +33,37 @@ z-index:1000;
 /* BANNER */
 
 .banner{
-background-image:url("img/banner.jpeg");
-background-size:cover;
-background-position:center;
+background:url("img/banner.jpeg") center/cover;
 height:350px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 color:white;
-text-shadow:2px 2px 8px rgba(0,0,0,0.8);
+text-shadow:2px 2px 8px black;
 text-align:center;
-}
-
-.banner h1{
-font-size:40px;
-margin:0;
 }
 
 /* MENU */
 
 nav{
 background:#6b4f3b;
-padding:12px;
+padding:10px;
 text-align:center;
 }
 
 nav a{
 color:white;
-margin:0 15px;
+margin:10px;
 text-decoration:none;
-font-weight:bold;
 }
 
-/* SECCIONES */
+/* PRODUCTOS */
 
 section{
 padding:40px;
 text-align:center;
 }
-
-/* PRODUCTOS */
 
 .productos{
 display:flex;
@@ -85,14 +75,9 @@ gap:20px;
 .producto{
 width:260px;
 background:white;
-border-radius:12px;
 padding:15px;
+border-radius:10px;
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-
-.producto:hover{
-transform:scale(1.05);
 }
 
 .producto img{
@@ -101,8 +86,8 @@ border-radius:10px;
 }
 
 .precio{
-color:#3f5c78;
 font-weight:bold;
+color:#3f5c78;
 }
 
 /* BOTONES */
@@ -115,27 +100,48 @@ padding:10px;
 border-radius:6px;
 cursor:pointer;
 margin-top:10px;
-}
-
-.btn:hover{
-background:#2e445a;
+width:100%;
 }
 
 /* CARRITO */
 
 .carrito{
 position:fixed;
-top:70px;
+top:80px;
 right:20px;
 background:white;
 padding:15px;
 border-radius:10px;
+width:280px;
 box-shadow:0 4px 10px rgba(0,0,0,0.2);
-width:250px;
+max-height:90vh;
+overflow:auto;
 }
 
 .item{
+display:flex;
+justify-content:space-between;
+margin-bottom:5px;
 font-size:14px;
+}
+
+.quitar{
+background:red;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* FORMULARIO */
+
+input, textarea{
+width:100%;
+margin-top:5px;
+margin-bottom:10px;
+padding:8px;
+border-radius:5px;
+border:1px solid #ccc;
 }
 
 /* FOOTER */
@@ -148,18 +154,33 @@ margin-top:40px;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<a class="top-whatsapp" href="https://wa.me/522226943133">
-📱 WhatsApp
-</a>
+<a class="top-whatsapp" href="https://wa.me/522226943133">📱 WhatsApp</a>
 
 <div class="carrito">
+
 <h3>🛒 Pedido</h3>
+
 <div id="lista"></div>
+
+<p id="total"><b>Total: $0</b></p>
+
+<hr>
+
+<h4>Datos del cliente</h4>
+
+<input id="nombre" placeholder="Nombre">
+<input id="telefono" placeholder="Teléfono">
+<textarea id="direccion" placeholder="Dirección"></textarea>
+
+<button class="btn" onclick="vaciar()">Vaciar carrito</button>
+
 <button class="btn" onclick="enviarPedido()">Enviar pedido</button>
+
 </div>
 
 <header class="banner">
@@ -169,7 +190,6 @@ margin-top:40px;
 
 <nav>
 <a href="#productos">Productos</a>
-<a href="#contacto">Contacto</a>
 </nav>
 
 <section id="productos">
@@ -182,74 +202,45 @@ margin-top:40px;
 <img src="img/1.jpeg">
 <h3>Pastel Chocolate</h3>
 <p class="precio">$250</p>
-<button class="btn" onclick="agregar('Pastel Chocolate')">Agregar</button>
+<button class="btn" onclick="agregar('Pastel Chocolate',250)">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/2.jpeg">
-<h3>Pastel Tres Leches</h3>
+<h3>Tres Leches</h3>
 <p class="precio">$280</p>
-<button class="btn" onclick="agregar('Pastel Tres Leches')">Agregar</button>
+<button class="btn" onclick="agregar('Tres Leches',280)">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/3.jpeg">
 <h3>Cheesecake</h3>
 <p class="precio">$300</p>
-<button class="btn" onclick="agregar('Cheesecake')">Agregar</button>
+<button class="btn" onclick="agregar('Cheesecake',300)">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/4.jpeg">
 <h3>Pastel Fresa</h3>
 <p class="precio">$270</p>
-<button class="btn" onclick="agregar('Pastel Fresa')">Agregar</button>
+<button class="btn" onclick="agregar('Pastel Fresa',270)">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/5.jpeg">
 <h3>Pan Dulce</h3>
 <p class="precio">$25</p>
-<button class="btn" onclick="agregar('Pan Dulce')">Agregar</button>
+<button class="btn" onclick="agregar('Pan Dulce',25)">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/6.jpeg">
 <h3>Galletas</h3>
 <p class="precio">$50</p>
-<button class="btn" onclick="agregar('Galletas')">Agregar</button>
-</div>
-
-<div class="producto">
-<img src="img/7.jpeg">
-<h3>Pastel Personalizado</h3>
-<button class="btn" onclick="agregar('Pastel Personalizado')">Cotizar</button>
+<button class="btn" onclick="agregar('Galletas',50)">Agregar</button>
 </div>
 
 </div>
-
-</section>
-
-<section id="contacto">
-
-<h2>Contacto</h2>
-
-<p><b>Horario:</b> 10 AM – 9 PM</p>
-
-<p><b>WhatsApp:</b> 2226943133</p>
-
-<p>
-<b>Dirección:</b><br>
-Calle Canal del Carmen 9-4<br>
-Col. Galaxia Bosques de Manzanilla
-</p>
-
-<iframe
-src="https://www.google.com/maps?q=Galaxia%20Bosques%20de%20Manzanilla%20Puebla&output=embed"
-width="100%"
-height="300"
-style="border:0;border-radius:10px;">
-</iframe>
 
 </section>
 
@@ -259,34 +250,84 @@ style="border:0;border-radius:10px;">
 
 <script>
 
-let carrito=[]
+let carrito={}
 
-function agregar(producto){
-carrito.push(producto)
+function agregar(nombre,precio){
+
+if(carrito[nombre]){
+carrito[nombre].cantidad++
+}else{
+carrito[nombre]={precio:precio,cantidad:1}
+}
+
+mostrar()
+}
+
+function quitar(nombre){
+delete carrito[nombre]
+mostrar()
+}
+
+function vaciar(){
+carrito={}
 mostrar()
 }
 
 function mostrar(){
+
 let lista=document.getElementById("lista")
+let total=0
+
 lista.innerHTML=""
-carrito.forEach(p=>{
-lista.innerHTML += "<div class='item'>• "+p+"</div>"
-})
+
+for(let nombre in carrito){
+
+let item=carrito[nombre]
+let subtotal=item.precio*item.cantidad
+total+=subtotal
+
+lista.innerHTML+=`
+<div class="item">
+${nombre} x${item.cantidad} ($${subtotal})
+<button class="quitar" onclick="quitar('${nombre}')">❌</button>
+</div>
+`
+}
+
+document.getElementById("total").innerHTML="<b>Total: $"+total+"</b>"
 }
 
 function enviarPedido(){
-if(carrito.length==0){
-alert("Carrito vacío")
+
+let nombre=document.getElementById("nombre").value
+let telefono=document.getElementById("telefono").value
+let direccion=document.getElementById("direccion").value
+
+if(Object.keys(carrito).length===0){
+alert("Agrega productos")
 return
 }
 
-let mensaje="Hola, quiero pedir:%0A"
+if(nombre=="" || telefono==""){
+alert("Completa tus datos")
+return
+}
 
-carrito.forEach(p=>{
-mensaje += "- "+p+"%0A"
-})
+let mensaje="PEDIDO%0A%0A"
+
+mensaje+="Cliente: "+nombre+"%0A"
+mensaje+="Teléfono: "+telefono+"%0A"
+mensaje+="Dirección: "+direccion+"%0A%0A"
+
+mensaje+="Productos:%0A"
+
+for(let nombre in carrito){
+let item=carrito[nombre]
+mensaje+=`${nombre} x${item.cantidad}%0A`
+}
 
 window.open("https://wa.me/522226943133?text="+mensaje)
+
 }
 
 </script>
