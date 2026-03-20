@@ -33,13 +33,28 @@ z-index:1000;
 /* BANNER */
 
 .banner{
-background:url("img/banner.png") center/cover;
+background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+url("img/banner.png") center/cover;
 height:350px;
+
 display:flex;
+flex-direction:column; /* 🔥 ESTO ES LA CLAVE */
 justify-content:center;
 align-items:center;
+
 color:white;
-text-shadow:2px 2px 8px black;
+text-align:center;
+}
+
+/* separación entre título y eslogan */
+.banner h1{
+margin:0;
+font-size:40px;
+}
+
+.banner p{
+margin-top:10px;
+font-size:18px;
 }
 
 /* MENU */
