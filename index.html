@@ -2,7 +2,6 @@
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,26 +15,39 @@ font-family:Arial;
 background:#f7f4ef;
 }
 
+/* BOTON WHATSAPP ARRIBA */
+
+.top-whatsapp{
+position:fixed;
+top:20px;
+left:20px;
+background:#25D366;
+color:white;
+padding:10px 15px;
+border-radius:20px;
+text-decoration:none;
+font-weight:bold;
+z-index:1000;
+}
+
 /* BANNER */
 
 .banner{
-background-image:url("img/banner.png");
+background-image:url("img/banner.jpeg");
 background-size:cover;
 background-position:center;
-height:380px;
-
+height:350px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-
 color:white;
 text-shadow:2px 2px 8px rgba(0,0,0,0.8);
 text-align:center;
 }
 
 .banner h1{
-font-size:45px;
+font-size:40px;
 margin:0;
 }
 
@@ -57,29 +69,21 @@ font-weight:bold;
 /* SECCIONES */
 
 section{
-padding:50px;
+padding:40px;
 text-align:center;
 }
 
 /* PRODUCTOS */
 
-.productos-container{
-overflow:hidden;
-}
-
 .productos{
 display:flex;
+flex-wrap:wrap;
+justify-content:center;
 gap:20px;
-animation:scroll 30s linear infinite;
-}
-
-@keyframes scroll{
-0%{transform:translateX(0)}
-100%{transform:translateX(-50%)}
 }
 
 .producto{
-min-width:250px;
+width:260px;
 background:white;
 border-radius:12px;
 padding:15px;
@@ -107,9 +111,10 @@ font-weight:bold;
 background:#3f5c78;
 color:white;
 border:none;
-padding:10px 15px;
+padding:10px;
 border-radius:6px;
 cursor:pointer;
+margin-top:10px;
 }
 
 .btn:hover{
@@ -120,36 +125,17 @@ background:#2e445a;
 
 .carrito{
 position:fixed;
-top:20px;
+top:70px;
 right:20px;
-background:#6b4f3b;
-color:white;
-padding:12px 18px;
-border-radius:25px;
-font-weight:bold;
-}
-
-/* HISTORIA */
-
-.historia{
-max-width:800px;
-margin:auto;
-font-size:18px;
-line-height:1.6;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
+background:white;
 padding:15px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+width:250px;
+}
+
+.item{
+font-size:14px;
 }
 
 /* FOOTER */
@@ -157,158 +143,88 @@ text-decoration:none;
 footer{
 background:#3f5c78;
 color:white;
-padding:30px;
+padding:20px;
 margin-top:40px;
 }
 
 </style>
-
 </head>
 
 <body>
 
+<a class="top-whatsapp" href="https://wa.me/522226943133">
+📱 WhatsApp
+</a>
+
 <div class="carrito">
-🛒 Carrito: <span id="contador">0</span>
+<h3>🛒 Pedido</h3>
+<div id="lista"></div>
+<button class="btn" onclick="enviarPedido()">Enviar pedido</button>
 </div>
 
 <header class="banner">
-
 <h1>La Dulce Chispa De María</h1>
-
 <p>Un pedacito de hogar en cada bocado</p>
-
 </header>
 
 <nav>
-
-<a href="#inicio">Inicio</a>
 <a href="#productos">Productos</a>
-<a href="#historia">Historia</a>
 <a href="#contacto">Contacto</a>
-
 </nav>
-
-<section id="inicio">
-
-<h2>Bienvenido</h2>
-
-<p>Postres artesanales hechos con amor.</p>
-
-<p><b>También realizamos pasteles personalizados.</b></p>
-
-</section>
 
 <section id="productos">
 
-<h2>Nuestros Productos</h2>
-
-<div class="productos-container">
+<h2>Productos</h2>
 
 <div class="productos">
 
 <div class="producto">
 <img src="img/1.jpeg">
 <h3>Pastel Chocolate</h3>
-<p>Pastel suave con crema de chocolate.</p>
 <p class="precio">$250</p>
-<button class="btn" onclick="agregar()">Agregar</button>
+<button class="btn" onclick="agregar('Pastel Chocolate')">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/2.jpeg">
 <h3>Pastel Tres Leches</h3>
-<p>Esponjoso y delicioso.</p>
 <p class="precio">$280</p>
-<button class="btn" onclick="agregar()">Agregar</button>
+<button class="btn" onclick="agregar('Pastel Tres Leches')">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/3.jpeg">
 <h3>Cheesecake</h3>
-<p>Con base crujiente.</p>
 <p class="precio">$300</p>
-<button class="btn" onclick="agregar()">Agregar</button>
+<button class="btn" onclick="agregar('Cheesecake')">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/4.jpeg">
 <h3>Pastel Fresa</h3>
-<p>Fresas naturales.</p>
 <p class="precio">$270</p>
-<button class="btn" onclick="agregar()">Agregar</button>
+<button class="btn" onclick="agregar('Pastel Fresa')">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/5.jpeg">
 <h3>Pan Dulce</h3>
-<p>Recién horneado.</p>
 <p class="precio">$25</p>
-<button class="btn" onclick="agregar()">Agregar</button>
+<button class="btn" onclick="agregar('Pan Dulce')">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/6.jpeg">
 <h3>Galletas</h3>
-<p>Con chispas de chocolate.</p>
 <p class="precio">$50</p>
-<button class="btn" onclick="agregar()">Agregar</button>
+<button class="btn" onclick="agregar('Galletas')">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/7.jpeg">
 <h3>Pastel Personalizado</h3>
-<p>Diseñamos tu pastel para cualquier evento.</p>
-<p class="precio">Cotizar</p>
-<button class="btn">Info</button>
+<button class="btn" onclick="agregar('Pastel Personalizado')">Cotizar</button>
 </div>
-
-<!-- duplicados para carrusel infinito -->
-
-<div class="producto">
-<img src="img/1.jpeg">
-<h3>Pastel Chocolate</h3>
-</div>
-
-<div class="producto">
-<img src="img/2.jpeg">
-<h3>Pastel Tres Leches</h3>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="historia">
-
-<h2>Nuestra Historia</h2>
-
-<div class="historia">
-
-<p>
-Todo comenzó en una cocina sencilla, con un horno encendido y una idea clara:
-crear postres capaces de alegrar el día de alguien.
-</p>
-
-<p>
-María siempre creyó que la repostería era más que mezclar ingredientes.
-Cada pastel era una forma de compartir cariño.
-</p>
-
-<p>
-Lo que empezó para su familia pronto llegó a vecinos y amigos,
-hasta convertirse en algo más grande.
-</p>
-
-<p>
-Así nació <b>La Dulce Chispa De María</b>.
-</p>
-
-<p>
-Porque un buen postre no solo se disfruta…
-también se comparte y se recuerda.
-</p>
 
 </div>
 
@@ -323,13 +239,6 @@ también se comparte y se recuerda.
 <p><b>WhatsApp:</b> 2226943133</p>
 
 <p>
-<b>Instagram:</b>
-<a href="https://www.instagram.com/la_dulce_chispa_de_maria?igsh=c3h2MDNmZHpiZ2Jh">
-Ver perfil
-</a>
-</p>
-
-<p>
 <b>Dirección:</b><br>
 Calle Canal del Carmen 9-4<br>
 Col. Galaxia Bosques de Manzanilla
@@ -338,27 +247,46 @@ Col. Galaxia Bosques de Manzanilla
 <iframe
 src="https://www.google.com/maps?q=Galaxia%20Bosques%20de%20Manzanilla%20Puebla&output=embed"
 width="100%"
-height="350"
+height="300"
 style="border:0;border-radius:10px;">
 </iframe>
 
 </section>
 
 <footer>
-
 <p>© 2026 La Dulce Chispa De María</p>
-
 </footer>
-
-<a class="whatsapp" href="https://wa.me/522226943133">💬</a>
 
 <script>
 
-let contador=0
+let carrito=[]
 
-function agregar(){
-contador++
-document.getElementById("contador").innerText=contador
+function agregar(producto){
+carrito.push(producto)
+mostrar()
+}
+
+function mostrar(){
+let lista=document.getElementById("lista")
+lista.innerHTML=""
+carrito.forEach(p=>{
+lista.innerHTML += "<div class='item'>• "+p+"</div>"
+})
+}
+
+function enviarPedido(){
+if(carrito.length==0){
+alert("Carrito vacío")
+return
+}
+
+let mensaje="Hola, quiero pedir:%0A"
+
+carrito.forEach(p=>{
+mensaje += "- "+p+"%0A"
+})
+
+window.open("https://wa.me/522226943133?text="+mensaje)
 }
 
 </script>
