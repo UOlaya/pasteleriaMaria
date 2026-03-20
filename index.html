@@ -15,7 +15,7 @@ font-family:Arial;
 background:#f7f4ef;
 }
 
-/* BOTON WHATSAPP */
+/* WHATSAPP */
 
 .top-whatsapp{
 position:fixed;
@@ -37,8 +37,8 @@ background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
 url("img/banner.png") center/cover;
 height:350px;
 
-display:flex !important;
-flex-direction:column !important;
+display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
 
@@ -46,19 +46,14 @@ color:white;
 text-align:center;
 }
 
-/* 🔥 FIX DEFINITIVO */
 .banner h1{
-display:block !important;
 margin:0;
 font-size:42px;
-letter-spacing:1px;
 }
 
 .banner .eslogan{
-display:block !important;
 margin-top:10px;
 font-size:20px;
-opacity:0.9;
 }
 
 /* MENU */
@@ -169,6 +164,27 @@ border-radius:10px;
 overflow:hidden;
 }
 
+/* RESEÑAS */
+
+.reseñas{
+background:#fff;
+padding:40px;
+}
+
+.card{
+background:#f9f9f9;
+padding:15px;
+margin:10px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.1);
+max-width:300px;
+}
+
+.estrellas{
+color:gold;
+font-size:18px;
+}
+
 /* FOOTER */
 
 footer{
@@ -203,7 +219,6 @@ margin-top:40px;
 <textarea id="direccion" placeholder="Dirección"></textarea>
 
 <button class="btn" onclick="vaciar()">Vaciar carrito</button>
-
 <button class="btn" onclick="enviarPedido()">Enviar pedido</button>
 
 </div>
@@ -216,6 +231,7 @@ margin-top:40px;
 <nav>
 <a href="#productos">Productos</a>
 <a href="#ubicacion">Ubicación</a>
+<a href="#reseñas">Reseñas</a>
 </nav>
 
 <section id="productos">
@@ -227,45 +243,29 @@ margin-top:40px;
 <div class="producto">
 <img src="img/1.jpeg">
 <h3>Pastel Chocolate</h3>
-<p>Un pastel delicioso con sabor a chocolate</p>
-<p class="precio">$250</p>
+<p>$250</p>
 <button class="btn" onclick="agregar('Pastel Chocolate',250)">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/2.jpeg">
 <h3>Tres Leches</h3>
-<p>Un postre cremoso y suave</p>
-<p class="precio">$280</p>
+<p>$280</p>
 <button class="btn" onclick="agregar('Tres Leches',280)">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/3.jpeg">
 <h3>Cheesecake</h3>
-<p class="precio">$300</p>
+<p>$300</p>
 <button class="btn" onclick="agregar('Cheesecake',300)">Agregar</button>
 </div>
 
 <div class="producto">
 <img src="img/4.jpeg">
 <h3>Pastel Fresa</h3>
-<p class="precio">$270</p>
+<p>$270</p>
 <button class="btn" onclick="agregar('Pastel Fresa',270)">Agregar</button>
-</div>
-
-<div class="producto">
-<img src="img/5.jpeg">
-<h3>Pan Dulce</h3>
-<p class="precio">$25</p>
-<button class="btn" onclick="agregar('Pan Dulce',25)">Agregar</button>
-</div>
-
-<div class="producto">
-<img src="img/6.jpeg">
-<h3>Galletas</h3>
-<p class="precio">$50</p>
-<button class="btn" onclick="agregar('Galletas',50)">Agregar</button>
 </div>
 
 </div>
@@ -276,17 +276,49 @@ margin-top:40px;
 
 <h2>Ubicación</h2>
 
-<p>Calle Canal del Carmen 9-4, Col. Galaxia Bosques de Manzanilla</p>
+<p>Canal del Carmen 9-4, Puebla</p>
 
 <div class="mapa">
-<div class="mapa">
-<iframe 
-src="https://www.google.com/maps?q=La%20Dulce%20Chispa%20De%20María%20Puebla&output=embed"
-width="100%" 
-height="350" 
-style="border:0; border-radius:10px;" 
-loading="lazy">
+<iframe
+src="https://maps.google.com/maps?q=Galaxia%20Bosques%20de%20Manzanilla%20Puebla&output=embed"
+width="100%"
+height="350"
+style="border:0;">
 </iframe>
+</div>
+
+<br>
+
+<a href="https://www.google.com/maps/search/?api=1&query=La+Dulce+Chispa+De+María" target="_blank">
+📍 Cómo llegar
+</a>
+
+</section>
+
+<section id="reseñas" class="reseñas">
+
+<h2>⭐ Opiniones de clientes</h2>
+
+<div style="display:flex; flex-wrap:wrap; justify-content:center;">
+
+<div class="card">
+<p><b>María López</b></p>
+<p class="estrellas">★★★★★</p>
+<p>Los pasteles están deliciosos, súper recomendados.</p>
+</div>
+
+<div class="card">
+<p><b>Juan Pérez</b></p>
+<p class="estrellas">★★★★★</p>
+<p>Excelente servicio y muy buena atención.</p>
+</div>
+
+<div class="card">
+<p><b>Ana Torres</b></p>
+<p class="estrellas">★★★★☆</p>
+<p>Muy ricos, volveré a comprar sin duda.</p>
+</div>
+
 </div>
 
 </section>
@@ -296,8 +328,6 @@ loading="lazy">
 </footer>
 
 <script>
-
-/* JS igual (sin cambios funcionales) */
 
 let carrito={}
 
